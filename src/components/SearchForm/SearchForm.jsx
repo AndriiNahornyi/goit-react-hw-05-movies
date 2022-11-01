@@ -3,7 +3,7 @@ import css from './SearchForm.module.css';
 
 export const SearchForm = ({ getFormData }) => {
   const [query, setQuery] = useState('');
-
+  //Замінити на searchParams?
   const onSubmit = event => {
     event.preventDefault();
     getFormData(query);
@@ -15,12 +15,15 @@ export const SearchForm = ({ getFormData }) => {
     <form onSubmit={onSubmit}>
       <div>
         <input
+          className={css.SearchFormInput}
           name={'query'}
           onChange={onHandleChage}
-          placeholder="Movie name"
+          placeholder="Movie title"
           value={query}
         />
-        <button className={css.button} type="submit"></button>
+        <button className={css.button} type="submit">
+          Search Movie
+        </button>
       </div>
     </form>
   );

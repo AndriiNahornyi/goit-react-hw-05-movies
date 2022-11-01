@@ -1,18 +1,20 @@
 import { NavLink } from 'react-router-dom';
-// import css from './Header.module.css';
+import css from './Header.module.css';
 export const Header = () => {
   return (
     <>
-      <header>
+      <header className={css.Header}>
         <nav>
           <ul>
-            <li>
-              <NavLink to="/" end>
-                HOME
+            <li className={css.Items}>
+              <NavLink className={css.Links} to="/" end>
+                <h2 className={css.Title}>HOME</h2>
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/movies">MOVIES</NavLink>
+            <li className={css.Items}>
+              <NavLink className={css.Links} to="/movies">
+                <h2 className={css.Title}>MOVIES</h2>
+              </NavLink>
             </li>
           </ul>
         </nav>

@@ -1,0 +1,11 @@
+.List {
+  margin-top: 40px;
+}
+.Items {
+  list-style: none;
+  margin-bottom: 5px;
+}
+.Link {
+  text-decoration: none;
+  color: #032541;
+}

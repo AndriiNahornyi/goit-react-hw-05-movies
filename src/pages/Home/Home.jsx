@@ -1,7 +1,9 @@
-import { getTrending } from 'API';
+import { getTrending } from 'services/API';
 import { Header } from 'components/Header';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import css from './Home.module.css';
+import { createImgStr } from 'services/helpers';
 
 export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState('');
@@ -14,14 +16,20 @@ export const Home = () => {
     getData();
   }, []);
   //   ;
+
   return (
     <>
       <Header />
       {trendingMovies && (
-        <ul>
+        <ul className={css.List}>
           {trendingMovies?.map(movie => (
-            <li key={movie.id}>
-              <Link to={`/movies/${movie.id}`}>{movie.original_title}</Link>
+            <li className={css.Items} key={movie.id}>
+              <Link className={css.Link} to={`/movies/${movie.id}`}>
+                <img src={createImgStr(movie.poster_path)} alt="movie" />
+                <h2>Title: {movie.original_title}</h2>
+                <p>Overview: {movie.overview}</p>
+                <p>Vote average: {movie.vote_average}</p>
+              </Link>
             </li>
           ))}
         </ul>
