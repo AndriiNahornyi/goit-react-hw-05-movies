@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviews } from 'services/API';
-import { createImgStr } from 'services/helpers';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState(null);

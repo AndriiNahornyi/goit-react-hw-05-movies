@@ -9,6 +9,7 @@ import { createImgStr } from 'services/helpers';
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
   //Замінити на searchParams query
