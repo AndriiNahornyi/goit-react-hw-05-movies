@@ -1,6 +1,6 @@
 .section {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }
 .Container {
   margin-top: 30px;
@@ -15,8 +15,7 @@
 }
 
 .Link {
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 15px;
   list-style: none;
   text-decoration: none;
   color: #032541;
@@ -31,4 +30,7 @@
 }
 .Genres {
   margin-bottom: 5px;
+}
+.Paragraphe {
+  font-weight: 700;
 }

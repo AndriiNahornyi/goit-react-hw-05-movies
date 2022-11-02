@@ -29,11 +29,21 @@ export const MovieDetails = () => {
           />
           <h2 className={css.Title}>Title: {movieItems.original_title}</h2>
           <p className={css.Genres}>
-            Genres: {movieItems?.genres?.map(genre => genre.name).join(', ')}
+            <span className={css.Paragraphe}>Genres: </span>{' '}
+            {movieItems?.genres?.map(genre => genre.name).join(', ')}
           </p>
-          <p className={css.Genres}>Overview: {movieItems.overview}</p>
-          <p className={css.Genres}>Release date: {movieItems.release_date}</p>
-          <p className={css.Genres}>Popularity: {movieItems.vote_average}</p>
+          <p className={css.Genres}>
+            <span className={css.Paragraphe}>Overview: </span>{' '}
+            {movieItems.overview}
+          </p>
+          <p className={css.Genres}>
+            <span className={css.Paragraphe}>Release date: </span>{' '}
+            {movieItems.release_date}
+          </p>
+          <p className={css.Genres}>
+            <span className={css.Paragraphe}>Popularity: </span>{' '}
+            {movieItems.vote_average}
+          </p>
           <Link className={css.Link} to="cast">
             Cast
           </Link>
