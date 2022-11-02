@@ -4,16 +4,42 @@
   background-color: #032541;
   height: 150px;
 }
+.Conteiner {
+  display: flex;
+  width: 20%;
+}
+.Navigation {
+  display: flex;
+  justify-content: space-between;
+}
 .Links {
   color: aliceblue;
   text-decoration: none;
 }
+.DeActive {
+  color: tomato;
+}
+
 .Items {
+  display: flex;
+  text-align: center;
+  margin-left: 50px;
   list-style: none;
   padding: 0;
 }
 .Title {
-  margin: 10px;
+  margin: 10px 0;
   padding: 0;
-  letter-spacing: 1.3px;
+  font-size: 30px;
+  font-weight: bolder;
+  letter-spacing: 1.5px;
+}
+.Content {
+  display: flex;
+  margin-left: 300px;
+}
+.PrimaryTitle {
+  display: flex;
+  align-items: center;
+  color: aliceblue;
 }

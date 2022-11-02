@@ -1,1 +1,1 @@
-export * from './Cast.jsx';
+export { Cast as default } from './Cast.jsx';

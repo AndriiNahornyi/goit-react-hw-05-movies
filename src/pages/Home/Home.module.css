@@ -1,11 +1,48 @@
+.Section {
+  max-width: 1280px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+.Conteiner {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1280px;
+}
 .List {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 40px;
+  gap: 30px;
 }
 .Items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 300px;
   list-style: none;
   margin-bottom: 5px;
 }
 .Link {
   text-decoration: none;
   color: #032541;
+}
+.Img {
+  max-width: 300px;
+}
+.Overview {
+  margin-bottom: 10px;
+}
+.Title {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.Paragraphe {
+  font-weight: 700;
+}
+.Content {
+  height: 450px;
 }

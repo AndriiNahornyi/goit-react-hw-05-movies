@@ -20,20 +20,37 @@ export const Home = () => {
   return (
     <>
       <Header />
-      {trendingMovies && (
-        <ul className={css.List}>
-          {trendingMovies?.map(movie => (
-            <li className={css.Items} key={movie.id}>
-              <Link className={css.Link} to={`/movies/${movie.id}`}>
-                <img src={createImgStr(movie.poster_path)} alt="movie" />
-                <h2>Title: {movie.original_title}</h2>
-                <p>Overview: {movie.overview}</p>
-                <p>Vote average: {movie.vote_average}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className={css.Section}>
+        <div className={css.Container}>
+          {trendingMovies && (
+            <ul className={css.List}>
+              {trendingMovies?.map(movie => (
+                <li className={css.Items} key={movie.id}>
+                  <Link className={css.Link} to={`/movies/${movie.id}`}>
+                    <div className={css.Content}>
+                      <img
+                        className={css.Img}
+                        src={createImgStr(movie.poster_path)}
+                        alt="movie"
+                      />
+                    </div>
+
+                    <h2 className={css.Title}>Title: {movie.original_title}</h2>
+                    <p className={css.Overview}>
+                      <span className={css.Paragraphe}>Overview: </span>{' '}
+                      {movie.overview}
+                    </p>
+                    <p>
+                      <span className={css.Paragraphe}>Vote average: </span>{' '}
+                      {movie.vote_average}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
     </>
   );
 };

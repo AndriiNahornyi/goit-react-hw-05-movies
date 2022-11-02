@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviews } from 'services/API';
+import css from './Reviews.module.css';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState(null);
@@ -17,15 +18,18 @@ export const Reviews = () => {
 
   return (
     <>
-      <h2>Reviews</h2>
+      <h2 className={css.Title}>Reviews</h2>
       {reviews && (
         <ul>
           {reviews?.map(review => (
-            <li key={review.id}>
-              <p>Author: {review.author}</p>
-              {/* доробити */}
-              {/* <p>Author_details : {review.author_details}</p> */}
-              <p>Content: {review.content}</p>
+            <li className={css.Item} key={review.id}>
+              <p className={css.Author}>
+                <span className={css.Paragraphe}>Author: </span> {review.author}
+              </p>
+              <p>
+                <span className={css.Paragraphe}>Content: </span>
+                {review.content}
+              </p>
             </li>
           ))}
         </ul>

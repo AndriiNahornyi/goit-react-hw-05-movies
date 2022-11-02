@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import css from './SearchForm.module.css';
-
+import PropTypes from 'prop-types';
 export const SearchForm = ({ getFormData }) => {
   const [query, setQuery] = useState('');
   //Замінити на searchParams?
@@ -27,4 +27,7 @@ export const SearchForm = ({ getFormData }) => {
       </div>
     </form>
   );
+};
+SearchForm.propTypes = {
+  getFormData: PropTypes.func.isRequired,
 };

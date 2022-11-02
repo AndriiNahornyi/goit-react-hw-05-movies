@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCast } from 'services/API';
 import { createImgStr } from 'services/helpers';
+import css from './Cast.module.css';
 
 export const Cast = () => {
   const [cast, setCast] = useState(null);
@@ -19,14 +20,26 @@ export const Cast = () => {
 
   return (
     <>
-      <h2>Cast</h2>
+      <h2 className={css.Title}>Cast</h2>
       {cast && (
-        <ul>
+        <ul className={css.List}>
           {cast?.map(item => (
-            <li key={item.id}>
-              <img src={createImgStr(item.profile_path)} alt="actor" />
-              <p>Name: {item.original_name}</p>
-              <p>Character: {item.character}</p>
+            <li className={css.Item} key={item.id}>
+              <div className={css.Image}>
+                <img
+                  className={css.Img}
+                  src={createImgStr(item.profile_path)}
+                  alt="actor"
+                />
+              </div>
+              <p className={css.Name}>
+                <span className={css.Paragraphe}>Name: </span>{' '}
+                {item.original_name}
+              </p>
+              <p className={css.Character}>
+                <span className={css.Paragraphe}>Character: </span>{' '}
+                {item.character}
+              </p>
             </li>
           ))}
         </ul>

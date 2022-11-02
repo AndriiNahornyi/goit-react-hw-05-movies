@@ -3,16 +3,20 @@ import { Header } from 'components/Header';
 import { SearchForm } from 'components/SearchForm';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import css from './Movies.module.css';
 import { createImgStr } from 'services/helpers';
 
 export const Movies = () => {
+  //Замінити на searchParams query
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page') ?? 1;
+  const query = searchParams.get('query') ?? '';
   const [movies, setMovies] = useState([]);
   // eslint-disable-next-line no-unused-vars
-  const [page, setPage] = useState(1);
-  const [query, setQuery] = useState('');
-  //Замінити на searchParams query
+  // const [page, setPage] = useState(1);
+  // const [query, setQuery] = useState('');
+
   useEffect(() => {
     const getData = async (query, page = 1) => {
       const data = await getMovieByName(query, page);
@@ -26,7 +30,7 @@ export const Movies = () => {
     }
   }, [query, page]);
   const getFormData = data => {
-    setQuery(data);
+    setSearchParams({ query: data });
   };
   // const loadMore = () => {
   //   setPage(prevPage => prevPage + 1);
@@ -37,15 +41,21 @@ export const Movies = () => {
       <Header />
       <SearchForm getFormData={getFormData} />
       {movies && (
-        <ul>
+        <ul className={css.List}>
           {movies?.map(movie => (
             <li className={css.Items} key={movie.id}>
               <Link className={css.Link} to={`/movies/${movie.id}`}>
-                <img src={createImgStr(movie.poster_path)} alt="movie" />
-                <h2>Title: {movie.original_title}</h2>
-                <p>Overview: {movie.overview}</p>
-                <p>Vote average: {movie.vote_average}</p>
-                <p>Realise date: {movie.release_date}</p>
+                <div className={css.Image}>
+                  <img src={createImgStr(movie.poster_path)} alt="movie" />
+                </div>
+                <h2 className={css.Title}>Title: {movie.original_title}</h2>
+                <p className={css.Overview}>Overview: {movie.overview}</p>
+                <p className={css.VoteAverage}>
+                  Vote average: {movie.vote_average}
+                </p>
+                <p className={css.DateRealise}>
+                  Realise date: {movie.release_date}
+                </p>
               </Link>
             </li>
           ))}

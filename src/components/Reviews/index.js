@@ -1,1 +1,1 @@
-export * from './Reviews.jsx';
+export { Reviews as default } from './Reviews.jsx';

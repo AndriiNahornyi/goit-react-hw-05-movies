@@ -1,0 +1,10 @@
+.Btn {
+  display: block;
+  width: 100px;
+  padding: 5px;
+  margin-bottom: 20px;
+  background-color: #032541;
+  color: aliceblue;
+  border: 2px solid #032541;
+  border-radius: 5px;
+}
