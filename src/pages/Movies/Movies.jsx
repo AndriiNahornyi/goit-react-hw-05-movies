@@ -49,12 +49,17 @@ export const Movies = () => {
                   <img src={createImgStr(movie.poster_path)} alt="movie" />
                 </div>
                 <h2 className={css.Title}>Title: {movie.original_title}</h2>
-                <p className={css.Overview}>Overview: {movie.overview}</p>
+                <p className={css.Overview}>
+                  <span className={css.Paragraphe}>Overview: </span>{' '}
+                  {movie.overview}
+                </p>
                 <p className={css.VoteAverage}>
-                  Vote average: {movie.vote_average}
+                  <span className={css.Paragraphe}>Vote average: </span>
+                  {movie.vote_average}
                 </p>
                 <p className={css.DateRealise}>
-                  Realise date: {movie.release_date}
+                  <span className={css.Paragraphe}>Realise date: </span>
+                  {movie.release_date}
                 </p>
               </Link>
             </li>
