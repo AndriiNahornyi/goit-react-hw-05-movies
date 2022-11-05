@@ -1,13 +1,19 @@
 import { getMovieDetails } from 'services/API';
 import { Header } from 'components/Header';
 import { Suspense, useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { createImgStr } from 'services/helpers';
 import css from './MovieDetails.module.css';
 import Button from 'components/Button';
 export const MovieDetails = () => {
   const [movieItems, setMovieItems] = useState({});
   const { movieId } = useParams();
+  const location = useLocation();
+  console.log('location', location);
+  const comebackPath = location.state?.from
+    ? location.state?.from?.pathname + location.state?.from?.search
+    : '/';
+
   useEffect(() => {
     const getDetails = async () => {
       const movieDetailsData = await getMovieDetails(movieId);
@@ -21,7 +27,7 @@ export const MovieDetails = () => {
       <Header />
       <div className={css.Section}>
         <div className={css.Container}>
-          <Button />
+          <Button comebackPath={comebackPath} />
           <img
             className={css.Img}
             src={createImgStr(movieItems.poster_path)}
@@ -44,10 +50,18 @@ export const MovieDetails = () => {
             <span className={css.Paragraphe}>Popularity: </span>{' '}
             {movieItems.vote_average}
           </p>
-          <Link className={css.Link} to="cast">
+          <Link
+            className={css.Link}
+            to="cast"
+            state={{ from: location.state?.from }}
+          >
             Cast
           </Link>
-          <Link className={css.Link} to="reviews">
+          <Link
+            className={css.Link}
+            to="reviews"
+            state={{ from: location.state?.from }}
+          >
             Reviews
           </Link>
           <Suspense fallback={<p>Loading...</p>}>
